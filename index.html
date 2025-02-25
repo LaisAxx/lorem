@@ -16,20 +16,25 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
+            margin: 0;
         }
 
         h1 {
-            font-size: 2.5em;
+            font-size: 2rem;
+        }
+
+        p {
+            font-size: 1.2rem;
         }
 
         #sorteio {
-            font-size: 1.5em;
-            padding: 15px 30px;
+            font-size: 1.2rem;
+            padding: 12px 20px;
             background-color: #ff4081;
             color: white;
             border: none;
-            border-radius: 10px;
+            border-radius: 8px;
             cursor: pointer;
             margin-top: 20px;
         }
@@ -43,16 +48,16 @@
             flex-direction: column;
             align-items: center;
             margin-top: 30px;
-            gap: 20px;
-            /* Espaçamento entre os elementos */
+            gap: 15px;
+            max-width: 90%;
         }
 
         #mensagem {
-            font-size: 1.8em;
+            font-size: 1.5rem;
         }
 
         #imagem-premio {
-            max-width: 300px;
+            max-width: 80%;
             display: none;
             border-radius: 10px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -60,7 +65,7 @@
 
         #link-musica {
             display: none;
-            font-size: 1.2em;
+            font-size: 1rem;
             text-decoration: none;
             color: #ff4081;
             font-weight: bold;
@@ -72,13 +77,13 @@
 
         .botao-musica {
             display: none;
-            padding: 12px 25px;
-            font-size: 1.2em;
+            padding: 10px 20px;
+            font-size: 1rem;
             font-weight: bold;
             background: linear-gradient(135deg, #f6f6f6, #fffafb);
             color: white;
             border: none;
-            border-radius: 10px;
+            border-radius: 8px;
             text-decoration: none;
             cursor: pointer;
             transition: 0.3s;
@@ -86,8 +91,36 @@
         }
 
         .botao-musica:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
             box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.4);
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            #sorteio {
+                font-size: 1rem;
+                padding: 10px 15px;
+            }
+
+            #mensagem {
+                font-size: 1.2rem;
+            }
+
+            #imagem-premio {
+                max-width: 90%;
+            }
+
+            .botao-musica {
+                font-size: 0.9rem;
+                padding: 8px 15px;
+            }
         }
     </style>
 </head>
@@ -102,7 +135,6 @@
         <div id="mensagem"></div>
         <img id="imagem-premio" src="" alt="Prêmio">
         <a id="link-musica" href="#" class="botao-musica" target="_blank">🎶 Ouça sua música dedicada no Spotify 🎶</a>
-
     </div>
 
     <script>
