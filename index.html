@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteio Especial para Loren ❤️</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #ffdde1;
+            color: #d6336c;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 2.5em;
+        }
+
+        #sorteio {
+            font-size: 1.5em;
+            padding: 15px 30px;
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        #sorteio:hover {
+            background-color: #d6336c;
+        }
+
+        #resultado {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+            gap: 20px;
+            /* Espaçamento entre os elementos */
+        }
+
+        #mensagem {
+            font-size: 1.8em;
+        }
+
+        #imagem-premio {
+            max-width: 300px;
+            display: none;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #link-musica {
+            display: none;
+            font-size: 1.2em;
+            text-decoration: none;
+            color: #ff4081;
+            font-weight: bold;
+        }
+
+        #link-musica:hover {
+            color: #d6336c;
+        }
+
+        .botao-musica {
+            display: none;
+            padding: 12px 25px;
+            font-size: 1.2em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #f6f6f6, #fffafb);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .botao-musica:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Sorteio Especial para Loren ❤️</h1>
+    <p>Clique no botão e descubra o que eu preparei para você!</p>
+    <button id="sorteio">Sortear</button>
+
+    <div id="resultado">
+        <div id="mensagem"></div>
+        <img id="imagem-premio" src="" alt="Prêmio">
+        <a id="link-musica" href="#" class="botao-musica" target="_blank">🎶 Ouça sua música dedicada no Spotify 🎶</a>
+
+    </div>
+
+    <script>
+        const premios = [
+            { texto: "Um jantar romântico comigo 🍽️❤️", imagem: "https://media.istockphoto.com/id/1197475721/pt/vetorial/a-tablecloth-table-in-a-restaurant-with-food-and-wine-evening-meal.jpg?s=1024x1024&w=is&k=20&c=E82GbMb7Sf1xdsHLUWGJ4kSVjVfyLme7O6q20pbYvZQ=" },
+            { texto: "Vale um beijo 💋", imagem: "https://media.istockphoto.com/id/1600898619/pt/vetorial/hand-drawn-vector-abstract-graphic-illustration-valentines-day-cards-template-drawing.jpg?s=1024x1024&w=is&k=20&c=wvJLyAcvmenvBhMAncKByEH216-nVxI6tJmYjnVq2tM=" },
+            { texto: "Sessão de filmes com cafuné 🎥🍿", imagem: "https://media.istockphoto.com/id/872949616/pt/vetorial/clapper-board-vector-icon.jpg?s=1024x1024&w=is&k=20&c=EDNS5ieP-IfA2ag_a87AFOJ53-9bvWu4907oH-x0Dmg=" },
+            { texto: "Um dia especial planejado só para você 🎁", imagem: "https://media.istockphoto.com/id/1137737091/pt/vetorial/feelings-icon-concept.jpg?s=1024x1024&w=is&k=20&c=L-xWHAGEJ1ywSydK7oNQEskQArQOXCmL8TRCVo9j_jg=" },
+            { texto: "Um abraço apertado que dura para sempre 🤗", imagem: "https://media.istockphoto.com/id/1456555760/pt/vetorial/hand-drawn-vector-abstract-graphic-illustration-valentines-day-design-elements-abstract.jpg?s=1024x1024&w=is&k=20&c=HIFSQCCU87_eYHfO7uedWx5C0xcpbKmWeXEqP1iz228=" },
+            {
+                texto: "Uma música dedicada só para você 🎶",
+                imagem: "https://media.istockphoto.com/id/1197828995/pt/vetorial/vector-illustration-of-headphones-with-a-plug-and-decorative-elements-around.jpg?s=1024x1024&w=is&k=20&c=raOOFJ_7fuZbMpDMc4yEh5us-q0UndcN5G3uosrLKVw=",
+                musica: "https://open.spotify.com/intl-pt/track/5MiLpTwzPloRBXDzf9SZYW?si=86ee9edc24964ed3"
+            }
+        ];
+
+        document.getElementById("sorteio").addEventListener("click", function () {
+            const premioEscolhido = premios[Math.floor(Math.random() * premios.length)];
+            const mensagem = document.getElementById("mensagem");
+            const imagem = document.getElementById("imagem-premio");
+            const linkMusica = document.getElementById("link-musica");
+
+            mensagem.innerHTML = `Parabéns, <strong>Loren</strong>! Você ganhou: <br> <span style="color:#d6336c;">${premioEscolhido.texto}</span> 🎉`;
+
+            imagem.src = premioEscolhido.imagem;
+            imagem.style.display = "block";
+
+            if (premioEscolhido.musica) {
+                linkMusica.href = premioEscolhido.musica;
+                linkMusica.style.display = "block";
+            } else {
+                linkMusica.style.display = "none";
+            }
+        });
+    </script>
+
+</body>
+
+</html>
